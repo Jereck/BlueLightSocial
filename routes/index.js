@@ -38,6 +38,10 @@ router.post("/register", function(req, res){
     });
 });
 
+router.get("/login", function(req, res){
+    res.render("login");
+});
+
 router.post('/login',
     passport.authenticate('local', { successRedirect: '/profile',
                                    failureRedirect: '/register' }));

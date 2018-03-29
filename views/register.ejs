@@ -1,24 +1,40 @@
 <% include partials/header %>
 
+<section class="hero is-small is-info">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title">Blue Light Social</h1>
+            <h2 class="subtitle">Register</h2>
+        </div>
+    </div>
+</section>
+
 <div class="container top-margin">
     <div class="tile is-ancestor">
         <div class="tile">
             <div class="tile">
                 <div class="tile is-parent">
-                    <article class="tile is-child notification box">
+                    <article class="tile is-child notification box is-info">
                         <form action="/register" method="POST">
-                            <div class="field">
-                                <label class="label">First Name</label>
-                                <div class="control">
-                                    <input class="input" type="text" placeholder="First Name" name="first_name">
+                            <div class="columns">
+                                <div class="column">
+                                    <div class="field">                                    
+                                        <label class="label">First Name</label>
+                                        <div class="control">
+                                            <input class="input" type="text" placeholder="First Name" name="first_name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="field">
+                                        <label class="label">Last Name</label>
+                                        <div class="control">
+                                            <input class="input" type="text" placeholder="Last Name" name="last_name">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="field">
-                                <label class="label">Last Name</label>
-                                <div class="control">
-                                    <input class="input" type="text" placeholder="Last Name" name="last_name">
-                                </div>
-                            </div>
+                            
                             <div class="field">
                                 <label class="label">Email</label>
                                 <div class="control">
@@ -45,7 +61,7 @@
                                 </div>
                             <div class="field">
                                 <div class="control">
-                                    <button class="button is-link is-outlined">Submit</button>
+                                    <button class="button">Submit</button>
                                 </div>
                             </div>
                         </form>

@@ -3,8 +3,6 @@ var router = express.Router();
 var Therapy = require("../models/therapy");
 var Comment = require("../models/comment");
 
-
-
 ////////////////////
 // THERAPIES PAGE //
 ////////////////////
@@ -47,7 +45,7 @@ router.post("/therapies", function(req, res){
 });
 
 router.get("/therapies/new", function(req, res){
-    res.render("new-therapy.ejs", {currentUser: req.user});
+    res.render("new-therapy", {currentUser: req.user});
 });
 
 router.get("/therapies/:id", function(req, res){

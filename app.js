@@ -12,6 +12,7 @@ const   express     = require('express'),
 
 var therapyRoutes = require("./routes/therapies"),
     profileRoutes = require("./routes/profile"),
+    groupRoutes   = require("./routes/groups"),
     indexRoutes   = require("./routes/index");
 
 
@@ -43,6 +44,7 @@ app.use(function(req, res, next){
 app.use(indexRoutes);
 app.use(profileRoutes);
 app.use(therapyRoutes);
+app.use(groupRoutes);
 
 
 

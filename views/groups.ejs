@@ -1,0 +1,18 @@
+<% include partials/header %>
+
+<section class="hero is-medium is-info">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title">Groups</h1>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <% groups.forEach(function(groups){ %>
+        <p class="title"><%= groups.name %></p>
+    <% }); %>
+    <a class="button" href="/groups/new">Add New Group</a>
+</div>
+
+<% include partials/footer %>
