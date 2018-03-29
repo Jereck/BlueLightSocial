@@ -8,11 +8,25 @@
     </div>
 </section>
 
-<div class="container">
-    <% groups.forEach(function(groups){ %>
-        <p class="title"><%= groups.name %></p>
-    <% }); %>
-    <a class="button" href="/groups/new">Add New Group</a>
+<div class="container top-margin">
+    <div class="columns is-multiline">
+        <% groups.forEach(function(groups){ %>
+            <div class="column is-half">
+                <div class="card">
+                    <div class="card-content has-text-centered">
+                        <div class="content">
+                            <p class="title"><%= groups.name %></p>
+                            <p><a href="/groups/<%= groups._id %>" class="button is-primary">Enter</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+    
+    <% if(currentUser) { %>
+        <a class="button" href="/groups/new">Add New Group</a>
+    <% } %>
 </div>
 
 <% include partials/footer %>

@@ -1,0 +1,37 @@
+<% include partials/header %>
+
+<section class="hero is-info">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title">
+                <%= group.name %>
+            </h1>
+            <p><%= group.description %></p>
+        </div>
+    </div>
+</section>
+
+<div class="top-margin">
+    <div class="tile is-ancestor">
+        <div class="tile is-4">
+            <div class="tile">
+                <div class="tile is-parent is-verticle">
+                    <article class="tile is-child notification box has-text-centered">
+                        <figure class="image is-1by1">
+                            <img src="<%= group.image %>">
+                        </figure>
+                    </article>
+                </div>
+            </div>
+        </div>
+        <div class="tile is-parent">
+            <article class="tile is-child notification box">
+                <div class="content">
+                    <p class="title has-text-centered">Group Members</p>
+                </div>
+            </article>
+        </div>
+    </div>
+</div>
+
+<% include partials/footer %>

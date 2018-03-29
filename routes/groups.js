@@ -39,6 +39,16 @@ router.post("/groups", function(req, res){
     });
 });
 
+router.get("/groups/:id", function(req, res){
+    Group.findById(req.params.id).populate("comments").exec(function(err, foundGroup){
+        if(err){
+            console.log(err);
+        } else  {
+            res.render("show-group", {group: foundGroup});
+        }
+    });
+});
+
 function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         return next();
