@@ -46,7 +46,6 @@ app.use(therapyRoutes);
 // PROFILE //
 /////////////
 app.get("/profile", function(req, res){
-    console.log(req.user);
     res.render("profile", {currentUser: req.user});
 });
 
