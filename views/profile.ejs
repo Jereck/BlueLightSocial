@@ -6,9 +6,9 @@
             <div class="tile">
                 <div class="tile is-parent is-verticle">
                     <article class="tile is-child notification box">
-                        <p class="title">Jake Reck</p>
+                        <p class="title"><%= currentUser.first_name %> <%= currentUser.last_name %></p>
                         <figure class="image is-4by3">
-                            <img src="https://bulma.io/images/placeholders/640x480.png">
+                            <img src="<%= currentUser.profile_picture %>">
                         </figure>
                     </article>
                 </div>
