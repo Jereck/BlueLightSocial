@@ -1,0 +1,28 @@
+<% include partials/header %>
+
+<div class="container top-margin">
+    <div class="columns is-multiline">
+        <% therapies.forEach(function(therapies){ %>
+            <div class="column is-one-third">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="<%= therapies.image %>">
+                        </figure>
+                    </div>
+                    <div class="card-content has-text-centered">
+                        <div class="content">
+                            <p class="title"><%= therapies.name %></p>
+                            <p><a href="/therapies/<%= therapies._id %>" class="button is-outlined is-info">More Info</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+    <a href="/therapies/new" class="button is-primary">Add new therapy</a>    
+</div>
+
+
+
+<% include partials/footer %>

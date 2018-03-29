@@ -1,0 +1,59 @@
+<% include partials/header %>
+
+<div class="container top-margin">
+    <div class="tile is-ancestor">
+        <div class="tile">
+            <div class="tile">
+                <div class="tile is-parent">
+                    <article class="tile is-child notification box">
+                        <form action="/register" method="POST">
+                            <div class="field">
+                                <label class="label">First Name</label>
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="First Name" name="first_name">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">Last Name</label>
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="Last Name" name="last_name">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">Email</label>
+                                <div class="control">
+                                    <input class="input" type="email" placeholder="e.g. alexsmith@gmail.com" name="email">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">Profile Picture</label>
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="Enter url" name="profile_picture">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">Username</label>
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="Username" name="username">
+                                </div>
+                            </div>
+                            <div class="field">
+                                    <label class="label">Password</label>
+                                    <div class="control">
+                                        <input class="input" type="password" placeholder="Password" name="password">
+                                    </div>
+                                </div>
+                            <div class="field">
+                                <div class="control">
+                                    <button class="button is-link is-outlined">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include partials/footer %>
