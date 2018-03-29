@@ -11,6 +11,7 @@ const   express     = require('express'),
         app         = express();
 
 var therapyRoutes = require("./routes/therapies"),
+    profileRoutes = require("./routes/profile"),
     indexRoutes   = require("./routes/index");
 
 
@@ -40,14 +41,10 @@ app.use(function(req, res, next){
 });
 
 app.use(indexRoutes);
+app.use(profileRoutes);
 app.use(therapyRoutes);
 
-/////////////
-// PROFILE //
-/////////////
-app.get("/profile", function(req, res){
-    res.render("profile", {currentUser: req.user});
-});
+
 
 
 app.listen(3000, function(){

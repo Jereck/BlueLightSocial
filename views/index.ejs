@@ -3,8 +3,8 @@
 <section class="hero is-medium is-info">
     <div class="hero-body">
         <div class="container has-text-centered">
-        <h1 class="title">Blue Light Social</h1>
-        <h2 class="subtitle">Connecting the World</h2>
+            <h1 class="title">Blue Light Social</h1>
+            <h2 class="subtitle">Connecting the World</h2>
         </div>
     </div>
 </section>
@@ -37,6 +37,14 @@
                         </form>
                     <% } else { %>
                         <h1 class="title has-text-centered">Welcome, <%= currentUser.username %>!</h1>
+                        <div class="field is-grouped">
+                            <p class="control">
+                                <a class="button is-link is-rounded" href="/profile">Go to Profile</a>
+                            </p>
+                            <p class="control">
+                                <a class="button is-danger is-rounded" href="/logout">Log Out</a>                                
+                            </p>
+                        </div>
                     <% } %>
                 </article>
             </div>

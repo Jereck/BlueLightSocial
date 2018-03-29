@@ -1,5 +1,29 @@
 <% include partials/header %>
 
+<div class="hero is-medium is-info">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <div class="title">
+                <h1 class="title">
+                    Therapies
+                </h1>
+                <form>
+                    <div class="field has-addons has-addons-centered">
+                        <div class="control is-expanded">
+                            <input class="input" type="text" placeholder="Enter Location">
+                        </div>
+                        <div class="control">
+                            <a class="button is-primary">
+                                Search
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container top-margin">
     <div class="columns is-multiline">
         <% therapies.forEach(function(therapies){ %>
@@ -20,7 +44,9 @@
             </div>
         <% }) %>
     </div>
-    <a href="/therapies/new" class="button is-primary">Add new therapy</a>    
+    <% if(currentUser){ %>
+        <a href="/therapies/new" class="button is-primary">Add new therapy</a>
+    <% } %>
 </div>
 
 
