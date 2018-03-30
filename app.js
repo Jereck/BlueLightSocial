@@ -17,7 +17,7 @@ var therapyRoutes = require("./routes/therapies"),
 
 
 seedDB();
-mongoose.connect('mongodb://Jake_Reck:Stella725!@ds229549.mlab.com:29549/bluelight')
+mongoose.connect('mongodb://Jake:stella@ds229549.mlab.com:29549/bluelight')
 // mongoose.connect('mongodb://localhost/bluelight');
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
