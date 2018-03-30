@@ -39,41 +39,41 @@ var data = [
 
 function seedDB(){
     Therapy.remove({}, function(err){
-        if(err){
-            console.log(err);
-        }
-        console.log("Removed Therapies");
-        Comment.remove({}, function(err){
-            if(err){
-                console.log(err);
-            }
-            console.log("Removed comments!");
+        // if(err){
+        //     console.log(err);
+        // }
+        // console.log("Removed Therapies");
+        // Comment.remove({}, function(err){
+        //     if(err){
+        //         console.log(err);
+        //     }
+        //     console.log("Removed comments!");
 
-            data.forEach(function(seed){
-                Therapy.create(seed, function(err, therapy){
-                    if(err){
-                        console.log(err);
-                    } else {
-                        console.log("Added therapy");
+        //     data.forEach(function(seed){
+        //         Therapy.create(seed, function(err, therapy){
+        //             if(err){
+        //                 console.log(err);
+        //             } else {
+        //                 console.log("Added therapy");
 
-                        Comment.create(
-                            {
-                                text: "This is a great comment!",
-                                author: "Homer"
-                            }, function(err, comment){
-                                if(err){
-                                    console.log(err);
-                                } else {
-                                    therapy.comments.push(comment);
-                                    therapy.save();
-                                    console.log("Created new comment!");
-                                }
-                            }
-                        )
-                    }
-                })
-            })
-        })
+        //                 Comment.create(
+        //                     {
+        //                         text: "This is a great comment!",
+        //                         author: "Homer"
+        //                     }, function(err, comment){
+        //                         if(err){
+        //                             console.log(err);
+        //                         } else {
+        //                             therapy.comments.push(comment);
+        //                             therapy.save();
+        //                             console.log("Created new comment!");
+        //                         }
+        //                     }
+        //                 )
+        //             }
+        //         })
+        //     })
+        // })
     })
 }
 

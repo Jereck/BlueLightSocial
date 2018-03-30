@@ -68,8 +68,15 @@ router.post("/therapies/:id/comments", isLoggedIn, function(req, res){
                 if(err){
                     console.log(err);
                 } else {
+                    // add username and id to comment
+                    comment.author.id = req.user._id;
+                    comment.author.username = req.user.username;
+                    comment.author.profile_picture = req.user.profile_picture;
+                    //save comment
+                    comment.save()
                     therapy.comments.push(comment);
                     therapy.save();
+                    console.log(comment.author)
                     res.redirect("back");
                 }
             });
