@@ -1,20 +1,52 @@
 <% include partials/header %>
 
 <div class="parallax-container">
-    <div class="parallax">
-        <img src="images/parallax1.jpg">
-    </div>
-    <div class="section white">
-        <div class="row container">
-            <h2 class="header">Blue Light Social</h2>
-            <p class="grey-text text-darken-3">Connecting the World</p>
+    <div class="parallax"><img src="/images/parallax1.jpg"></div>
+</div>
+<div class="section white">
+    <div class="row container center-align blue-text">
+        <h1 class="header">Blue Light Social</h1>
+        <p class="grey-text">Connecting the World</p>
+        <div class="col s12 m6 l6 card">
+            <% if(!currentUser){ %>
+                <h5>Log In</h5>
+                <div class="row">
+                    <form class="col s12" action="/login" method="POST">
+                        <div class="input-field">
+                            <input class="validate" type="text" name="username" id="username">
+                            <label for="username">Username</label>
+                        </div>
+                        <div class="input-field">
+                            <input class="validate" type="password" name="password" id="password">
+                            <label for="password">Password</label>
+                        </div>
+                        <input class="waves-effect waves-light btn blue lighten-3" type="submit" value="Submit">
+                    </form>
+                </div>
+            <% } else { %>
+                <h5 class="center-align">Hello, <%= currentUser.first_name %>!</h5>
+            <% } %>
+        </div>
+        <div class="col s12 m6 l6">
+            <h4>Mission Statement</h4>
+            <p>This will be rolling out in stages...</p>
+            <h5>Stage One: Parents/Family</h5>
+            <div class="progress">
+                <div class="determinate" style="width: 70%"></div>
+            </div>
+            <h5>Stage Two: Therapies</h5>
+            <div class="progress">
+                <div class="determinate" style="width: 30%"></div>
+            </div>
+            <h5>Stage Three: Businesses</h5>
+            <div class="progress">
+                <div class="determinate" style="width: 0%"></div>
+            </div>
         </div>
     </div>
-    <div class="parallax-container">
-        <div class="parallax">
-            <img src="images/parallax2.jpg">
-        </div>
-    </div>
+</div>
+<div class="parallax-container">
+    <div class="parallax"><img src="/images/parallax2.jpg"></div>
 </div>
 
 <% include partials/footer %>

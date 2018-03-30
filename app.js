@@ -19,9 +19,9 @@ var therapyRoutes = require("./routes/therapies"),
 seedDB();
 mongoose.connect('mongodb://localhost/bluelight');
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static('views'));
-app.use(express.static('public'));
 app.set('view engine', 'ejs');
+app.use(express.static(__dirname + '/public'));
+
 
 // PASSPORT CONFIG
 app.use(require("express-session")({
@@ -45,9 +45,6 @@ app.use(indexRoutes);
 app.use(profileRoutes);
 app.use(therapyRoutes);
 app.use(groupRoutes);
-
-
-
 
 app.listen(3000, function(){
     console.log("Server is running...");
