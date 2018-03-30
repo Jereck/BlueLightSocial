@@ -47,6 +47,10 @@ app.use(profileRoutes);
 app.use(therapyRoutes);
 app.use(groupRoutes);
 
-app.listen(3000, function(){
-    console.log("Server is running...");
-});
+// app.listen(3000, function(){
+//     console.log("Server is running...");
+// });
+
+app.listen(process.env.PORT, process.env.IP, function(){
+    console.log("Server is running!")
+})
