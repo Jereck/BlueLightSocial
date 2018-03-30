@@ -1,38 +1,21 @@
 <% include partials/header %>
 
-<section class="hero is-small is-info">
-    <div class="hero-body">
-        <div class="container has-text-centered">
-            <h1 class="title">Blue Light Social</h1>
-            <h2 class="subtitle">Log In</h2>
-        </div>
-    </div>
-</section>
-
-<div class="container top-margin">
-    <div class="columns">
-        <div class="column is-half is-offset-one-quarter box">
-            <form action="/login" method="POST">
-                <div class="field">
-                    <label class="label">Username:</label>
-                    <div class="control">
-                        <input class="input is-primary" type="text" placeholder="Username" name="username">
-                    </div>
-                </div>
-                <div class="field">
-                    <label class="label">Password:</label>
-                    <div class="control">
-                        <input class="input is-primary" type="password" placeholder="Password" name="password">
-                    </div>
-                </div>
-                <div class="field">
-                    <div class="control">
-                        <button class="button is-primary is-outlined">Submit</button>
-                    </div>
-                </div>
-            </form>
-        </div>
+<div class="container">
+    <h1>Log In</h1>
+    <div class="row">
+        <form class="col s8 offset-s2" action="/login" method="POST">
+            <div class="input-field">
+                <input class="validate" type="text" name="username" id="username">
+                <label for="username">Username</label>
+            </div>
+            <div class="input-field">
+                <input class="validate" type="password" name="password" id="password">
+                <label for="password">Password</label>
+            </div>
+            <input class="waves-effect waves-light btn" type="submit" value="Submit">
+        </form>
     </div>
 </div>
+
 
 <% include partials/footer %>

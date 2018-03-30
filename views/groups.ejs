@@ -1,31 +1,25 @@
 <% include partials/header %>
 
-<section class="hero is-medium is-info">
-    <div class="hero-body">
-        <div class="container has-text-centered">
-            <h1 class="title">Groups</h1>
-        </div>
-    </div>
-</section>
-
-<div class="container top-margin">
-    <div class="columns is-multiline">
+<div class="container">
+    <h1>Groups</h1>
+    <div class="row">
         <% groups.forEach(function(groups){ %>
-            <div class="column is-half">
+            <div class="col s12 m6">
                 <div class="card">
-                    <div class="card-content has-text-centered">
-                        <div class="content">
-                            <p class="title"><%= groups.name %></p>
-                            <p><a href="/groups/<%= groups._id %>" class="button is-primary">Enter</a></p>
-                        </div>
+                    <div class="card-image">
+                        <img src="<%= groups.image %>">
+                        <span class="card-title"><%= groups.name %></span>
+                        <a class="btn-floating halfway-fab waves-effect waves-light blue" href="/groups/<%= groups._id %>"><i class="material-icons">add</i></a>
+                    </div>
+                    <div class="card-content">
+                        <p><%= groups.description %></p>
                     </div>
                 </div>
             </div>
         <% }); %>
-    </div>
-    
+    </div>        
     <% if(currentUser) { %>
-        <a class="button" href="/groups/new">Add New Group</a>
+        <a href="/groups/new">Add New Group</a>
     <% } %>
 </div>
 

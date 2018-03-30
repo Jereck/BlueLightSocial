@@ -1,33 +1,23 @@
 <% include partials/header %>
 
-<div class="top-margin">
-    <div class="tile is-ancestor">
-        <div class="tile is-4">
-            <div class="tile">
-                <div class="tile is-parent is-verticle">
-                    <article class="tile is-child notification box has-text-centered">
-                        <p class="title"><%= currentUser.first_name %> <%= currentUser.last_name %></p>
-                        <figure class="image is-1by1">
-                            <img src="<%= currentUser.profile_picture %>">
-                        </figure>
-                    </article>
-                </div>
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="col s4">
+            <h2 class="center-align"><%= currentUser.first_name %> <%= currentUser.last_name %></h2>
+            <img class="responsive-img circle z-depth-5" src="<%= currentUser.profile_picture %>">
         </div>
-        <div class="tile is-parent">
-            <article class="tile is-child notification box">
-                <div class="content">
-                    <p class="title">Status Update...</p>
-                    <form>
-                        <div class="field">
-                            <textarea class="textarea" placeholder="What's on your mind..." rows="10"></textarea>
+        <div class="col s6 offset-s2">
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea id="status" class="materialize-textarea"></textarea>
+                            <label for="status">Status Update</label>
                         </div>
-                        <div class="control">
-                            <button class="button">Submit</button>
-                        </div>
-                    </form>
-                </div>
-            </article>
+                    </div>
+                    <input class="waves-effect waves-light btn" type="submit" value="Submit">
+                </form>
+            </div>
         </div>
     </div>
 </div>

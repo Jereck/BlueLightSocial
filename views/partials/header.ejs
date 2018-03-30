@@ -2,90 +2,42 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title>Blue Light Social</title>
 
-        <!-- BULMA CDN -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <!-- MATERIALIZE CSS -->
+        <link type="text/css" rel="stylesheet" href="/css/materialize.css" media="screen,projection">
+
         <!-- CUSTOM CSS -->
         <link rel="stylesheet" href="/css/master.css">
-        <!-- FONT AWESOME -->
-        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
         <!-- GOOGLE FONTS -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900" rel="stylesheet">
 
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-
-            // Get all "navbar-burger" elements
-            var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
-            // Check if there are any navbar burgers
-            if ($navbarBurgers.length > 0) {
-
-            // Add a click event on each of them
-            $navbarBurgers.forEach(function ($el) {
-                $el.addEventListener('click', function () {
-
-                // Get the target from the "data-target" attribute
-                var target = $el.dataset.target;
-                var $target = document.getElementById(target);
-
-                // Toggle the class on both the "navbar-burger" and the "navbar-menu"
-                $el.classList.toggle('is-active');
-                $target.classList.toggle('is-active');
-
-                });
-            });
-            }
-
-            });
-        </script>
     </head>
 
     <body>
-        <nav class="navbar is-info" role="navigation" aria-label="main navigation">
+        <nav class="blue">
             <div class="container">
-                <div class="navbar-brand">
-                    <a class="navbar-item" href="/">
-                        BLS
-                    </a>
-                    <div class="navbar-burger" data-target="navMenu">
-                        <span></span>
-                        <span></span>
-                        <span></span>                    
-                    </div>
-                </div>
-                <div class="navbar-menu" id="navMenu">
-                    <div class="navbar-end">
-                        <% if(currentUser){ %>
-                            <p class="navbar-item"><%= currentUser.first_name %></p>
-                        <% } %>
-                        <a class="navbar-item" href="/therapies">Therapies</a>
-                        <a class="navbar-item" href="/groups">Groups</a>
+                <div class="nav-wrapper">
+                    <a href="/" class="brand-logo">BLS</a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="/therapies">Therapies</a></li>
+                        <li><a href="/groups">Groups</a></li>
                         <% if(!currentUser){ %>
-                            <div class="navbar-item has-dropdown is-hoverable">
-                                <a class="navbar-link">
-                                    <i class="fas fa-child"></i>
-                                </a>
-                                <div class="navbar-dropdown is-boxed">
-                                    <a class="navbar-item" href="/login">Log In</a>
-                                    <a class="navbar-item" href="/register">Register</a>
-                                </div>
-                            </div>
+                            <li><a href="/login">Log In</a></li>
+                            <li><a href="/register">Register</a></li>
                         <% } else { %>
-                            <div class="navbar-item has-dropdown is-hoverable">
-                                <a class="navbar-link">
-                                    <i class="fas fa-child"></i>
-                                </a>
-                                <div class="navbar-dropdown is-boxed">
-                                    <a class="navbar-item" href="/profile">Profile</a>                      
-                                    <a class="navbar-item" href="/logout">Log Out</a>
-                                </div>
-                            </div>
-                        <% } %>                        
-                    </div>
+                            <li><a href="/profile">Profile</a> </li>
+                            <li><a href="/logout">Log Out</a></li>
+                        <% } %>
+                    </ul>
                 </div>
             </div>
         </nav>
+    <main>
+        

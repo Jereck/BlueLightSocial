@@ -1,54 +1,28 @@
 <% include partials/header %>
 
-<div class="hero is-medium is-info">
-    <div class="hero-body">
-        <div class="container has-text-centered">
-            <div class="title">
-                <h1 class="title">
-                    Therapies
-                </h1>
-                <form>
-                    <div class="field has-addons has-addons-centered">
-                        <div class="control is-expanded">
-                            <input class="input" type="text" placeholder="Enter Location">
-                        </div>
-                        <div class="control">
-                            <a class="button is-primary">
-                                Search
-                            </a>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container top-margin">
-    <div class="columns is-multiline">
+<div class="container">
+    <h1>Therapies</h1>
+    <div class="row">
         <% therapies.forEach(function(therapies){ %>
-            <div class="column is-one-third">
+            <div class="col s6">
                 <div class="card">
                     <div class="card-image">
-                        <figure class="image is-4by3">
-                            <img src="<%= therapies.image %>">
-                        </figure>
+                        <img src="<%= therapies.image %>">
+                        <span class="card-title"><%= therapies.name %></span>
                     </div>
-                    <div class="card-content has-text-centered">
-                        <div class="content">
-                            <p class="title"><%= therapies.name %></p>
-                            <p><a href="/therapies/<%= therapies._id %>" class="button is-outlined is-info">More Info</a></p>
-                        </div>
+                    <div class="card-content">
+                        <p><%= therapies.description %></p>
+                    </div>
+                    <div class="card-action">
+                        <a href="/therapies/<%= therapies._id %>">More Info</a>
                     </div>
                 </div>
             </div>
-        <% }) %>
+        <% }) %>            
     </div>
     <% if(currentUser){ %>
-        <a href="/therapies/new" class="button is-primary">Add new therapy</a>
+        <a href="/therapies/new">Add new therapy</a>
     <% } %>
 </div>
-
-
 
 <% include partials/footer %>

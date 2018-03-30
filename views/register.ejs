@@ -1,74 +1,45 @@
 <% include partials/header %>
 
-<section class="hero is-small is-info">
-    <div class="hero-body">
-        <div class="container has-text-centered">
-            <h1 class="title">Blue Light Social</h1>
-            <h2 class="subtitle">Register</h2>
-        </div>
-    </div>
-</section>
-
-<div class="container top-margin">
-    <div class="tile is-ancestor">
-        <div class="tile">
-            <div class="tile">
-                <div class="tile is-parent">
-                    <article class="tile is-child notification box is-info">
-                        <form action="/register" method="POST">
-                            <div class="columns">
-                                <div class="column">
-                                    <div class="field">                                    
-                                        <label class="label">First Name</label>
-                                        <div class="control">
-                                            <input class="input" type="text" placeholder="First Name" name="first_name">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="column">
-                                    <div class="field">
-                                        <label class="label">Last Name</label>
-                                        <div class="control">
-                                            <input class="input" type="text" placeholder="Last Name" name="last_name">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="field">
-                                <label class="label">Email</label>
-                                <div class="control">
-                                    <input class="input" type="email" placeholder="e.g. alexsmith@gmail.com" name="email">
-                                </div>
-                            </div>
-                            <div class="field">
-                                <label class="label">Profile Picture</label>
-                                <div class="control">
-                                    <input class="input" type="text" placeholder="Enter url" name="profile_picture">
-                                </div>
-                            </div>
-                            <div class="field">
-                                <label class="label">Username</label>
-                                <div class="control">
-                                    <input class="input" type="text" placeholder="Username" name="username">
-                                </div>
-                            </div>
-                            <div class="field">
-                                    <label class="label">Password</label>
-                                    <div class="control">
-                                        <input class="input" type="password" placeholder="Password" name="password">
-                                    </div>
-                                </div>
-                            <div class="field">
-                                <div class="control">
-                                    <button class="button">Submit</button>
-                                </div>
-                            </div>
-                        </form>
-                    </article>
+<div class="container">
+    <h1>Register</h1>
+    <div class="row">
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input class="validate" name="first_name" id="first_name">
+                    <label for="first_name">First Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <input class="validate" name="last_name" id="last_name">
+                    <label for="last_name">Last Name</label>
                 </div>
             </div>
-        </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input class="validate" name="email" id="email" type="text">
+                    <label for="email">Email</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input class="validate" name="profile_picture" id="profile_picture" type="text">
+                    <label for="profile_picture">Profile Picture</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input class="validate" name="username" id="username" type="text">
+                    <label for="username">Username</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input class="validate" name="password" id="password" type="password">
+                    <label for="password">Password</label>
+                </div>
+            </div>
+            <input class="waves-effect waves-light btn" type="submit" value="Submit">            
+        </form>
     </div>
 </div>
 
