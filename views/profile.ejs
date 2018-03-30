@@ -2,11 +2,23 @@
 
 <div class="container">
     <div class="row">
-        <div class="col s4">
-            <h2 class="center-align"><%= currentUser.first_name %> <%= currentUser.last_name %></h2>
-            <img class="responsive-img circle z-depth-5" src="<%= currentUser.profile_picture %>">
+        <div class="col s12 m6 l4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="<%= currentUser.profile_picture %>">
+                    <span class="card-title"><%= currentUser.first_name%> <%= currentUser.last_name %></span>
+                </div>
+                <div class="card-content">
+                    <p><i class="tiny material-icons">face</i> @<%= currentUser.username %></p>
+                    <hr>
+                    <p><i class="tiny material-icons">mail</i> <%= currentUser.email %></p>
+                    <hr>
+                    <p><i class="tiny material-icons">message</i> Send Message</p>                    
+                </div>
+            </div>
         </div>
-        <div class="col s6 offset-s2">
+
+        <div class="col s12 m6 l7 offset-l1 card">
             <div class="row">
                 <form class="col s12">
                     <div class="row">
