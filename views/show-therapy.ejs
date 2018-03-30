@@ -1,79 +1,54 @@
 <% include partials/header %>
 
-<section class="hero is-info">
-    <div class="hero-body">
-        <div class="container has-text-centered">
-            <h1 class="title">
-                <%= therapy.name %>
-            </h1>
-            <p><%= therapy.city %>, <%= therapy.state %> <%= therapy.zip %></p>
+<div class="container">
+    <div class="row">
+        <div class="col sm-12">
+            <h1 class="title"><%= therapy.name %></h1>
         </div>
     </div>
-</section>
-
-<div class="container top-margin">
-    <div class="columns">
-        <div class="column">
+    <div class="row">
+        <div class="col sm-4">
             <img src="<%= therapy.image %>">
         </div>
-        <div class="column">
+        <div class="col sm-8">
             <p><%= therapy.description %></p>
         </div>
     </div>
     <hr>
     <% therapy.comments.forEach(function(comment){ %>
-        <article class="media">
-            <figure class="media-left">
-                <p class="image is-64x64">
-                    <img src="https://bulma.io/images/placeholders/128x128.png">
-                </p>
-            </figure>
-            <div class="media-content">
-                <div class="content">
-                    <p>
-                        <strong><%= comment.author %></strong>
-                        <br>
+        <div class="col s12 m8 offset-m2 l6 offset-l3">
+            <div class="card-panel grey lighten-5 z-depth-3">
+                <div class="row valign-wrapper">
+                <div class="col s2">
+                    <img src="https://bulma.io/images/placeholders/128x128.png" alt="" class="circle responsive-img">
+                </div>
+                <div class="col s10">
+                    <span class="black-text">
+                        <p><strong><%= comment.author %></strong></p>                        
                         <%= comment.text %>
-                    </p>
+                    </span>
+                </div>
                 </div>
             </div>
-        </article>
-    <% }) %>
-    <% if(!currentUser){ %>
-        <div class="box has-text-centered top-margin">
-            <h1 class="sbtitle">Log in to add comment...</h1>
         </div>
+    <% }) %>
+
+    <% if(!currentUser){ %>
+        <p class="right-align">Log in to add comment...</p>
     <% } else { %>
-        <article class="media">
-            <figure class="media-left">
-                <p class="image is-64x64">
-                    <img src="https://bulma.io/images/placeholders/128x128.png">
-                </p>
-            </figure>
-            <div class="media-content">
-                <form action="/therapies/<%= therapy._id %>/comments" method="POST">
-                    <div class="field">
-                        <p class="control">
-                            <textarea class="textarea" placeholder="Add a comment..." name="comment[text]"></textarea>
-                        </p>
+        <div class="row">
+            <form class="col s12" action="/therapies/<%= therapy._id %>/comments" method="POST">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="taComment" class="materialize-textarea" name="comment[text]"></textarea>
+                        <label for="taComment">Add a comment...</label>
                     </div>
-                    <nav class="level">
-                        <div class="level-left">
-                            <div class="level-item">
-                                <input type="submit" class="button is-info" value="Submit">
-                            </div>
-                        </div>
-                        <div class="level-right">
-                            <div class="level-item">
-                                <label class="checkbox">
-                                    <input type="checkbox"> Press enter to submit
-                                </label>
-                            </div>
-                        </div>
-                    </nav>
-                </form>
-            </div>
-        </article>
+                    <button class="btn waves-effect waves-light blue" type="submit" name="action">Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </form>
+        </div>
     <% } %>
 </div>
 

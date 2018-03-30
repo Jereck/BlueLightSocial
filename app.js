@@ -19,8 +19,8 @@ var therapyRoutes = require("./routes/therapies"),
 seedDB();
 mongoose.connect('mongodb://localhost/bluelight');
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static('views'));
 app.use(express.static('public'));
-app.use(express.static(__dirname + 'views'));
 app.set('view engine', 'ejs');
 
 // PASSPORT CONFIG

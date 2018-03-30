@@ -2,6 +2,9 @@
 
 <div class="container">
     <h1>Therapies</h1>
+    <% if(currentUser){ %>
+        <a href="/therapies/new" class="btn blue lighten-2">Add new therapy</a>
+    <% } %>
     <div class="row">
         <% therapies.forEach(function(therapies){ %>
             <div class="col s6">
@@ -14,15 +17,12 @@
                         <p><%= therapies.description %></p>
                     </div>
                     <div class="card-action">
-                        <a href="/therapies/<%= therapies._id %>">More Info</a>
+                        <a href="/therapies/<%= therapies._id %>" class="btn blue">More Info</a>
                     </div>
                 </div>
             </div>
         <% }) %>            
     </div>
-    <% if(currentUser){ %>
-        <a href="/therapies/new">Add new therapy</a>
-    <% } %>
 </div>
 
 <% include partials/footer %>

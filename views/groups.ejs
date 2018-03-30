@@ -2,6 +2,9 @@
 
 <div class="container">
     <h1>Groups</h1>
+    <% if(currentUser) { %>
+        <a href="/groups/new" class="btn blue lighten-2 waves-effect waves-orange">Add New Group</a>
+    <% } %>
     <div class="row">
         <% groups.forEach(function(groups){ %>
             <div class="col s12 m6">
@@ -9,7 +12,7 @@
                     <div class="card-image">
                         <img src="<%= groups.image %>">
                         <span class="card-title"><%= groups.name %></span>
-                        <a class="btn-floating halfway-fab waves-effect waves-light blue" href="/groups/<%= groups._id %>"><i class="material-icons">add</i></a>
+                        <a class="btn-floating halfway-fab waves-effect waves-light blue pulse" href="/groups/<%= groups._id %>"><i class="material-icons">add</i></a>
                     </div>
                     <div class="card-content">
                         <p><%= groups.description %></p>
@@ -18,9 +21,6 @@
             </div>
         <% }); %>
     </div>        
-    <% if(currentUser) { %>
-        <a href="/groups/new">Add New Group</a>
-    <% } %>
 </div>
 
 <% include partials/footer %>

@@ -1,54 +1,42 @@
 <% include partials/header %>
 
 <div class="container">
-    <p class="title">Create new Therapy</p>    
-    <form action="/therapies" method="POST">
-        <div class="field">
-            <label class="label">Name</label>
-            <div class="control">
-                <input class="input" type="text" name="name" placeholder="Name">
-            </div>
-        </div>
-        <div class="field">
-            <label class="label">Image</label>
-            <div class="control">
-                <input class="input" type="text" name="image" placeholder="Image Url">
-            </div>
-        </div>
-        <div class="field">
-            <label class="label">Description</label>
-            <div class="control">
-                <textarea class="textarea" placeholder="Description..." name="description"></textarea>
-            </div>
-        </div>
-        <div class="columns">
-            <div class="column">
-                <div class="field">
-                    <label class="label">City</label>
-                    <div class="control">
-                        <input class="input" type="text" name="city" placeholder="City">
-                    </div>
+    <h1>Create New Therapy</h1>
+    <div class="row">
+        <form class="col s12" action="/therapies" method="POST">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="name" type="text" class="validate" name="name">
+                    <label for="name">Name</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="image" type="text" class="validate" name="image">
+                    <label for="image">Image</label>
+                </div>
+                <div class="input-field col s12">
+                    <textarea id="description" class="materialize-textarea" name="description"></textarea>
+                    <label for="description">Description</label>
                 </div>
             </div>
-            <div class="column">
-                <div class="field">
-                    <label class="label">State</label>
-                    <div class="control">
-                        <input class="input" type="text" name="state" placeholder="State">
-                    </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="city" type="text" class="validate" name="city">
+                    <label for="city">City</label>
+                </div>
+                <div class="input-field col s2">
+                    <input id="state" type="text" class="validate" name="state">
+                    <label for="state">State</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="zip" type="text" class="validate" name="zip">
+                    <label for="zip">Zip Code</label>
                 </div>
             </div>
-            <div class="column">
-                <div class="field">
-                    <label class="label">Zip</label>
-                    <div class="control">
-                        <input class="input" type="text" name="zip" placeholder="Zip Code">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <button class="button is-link">Submit</button>
-    </form>
+            <button class="btn waves-effect waves-light blue" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+            </button>
+        </form>
+    </div>
 </div>
 
 
