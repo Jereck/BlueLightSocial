@@ -24,7 +24,6 @@ router.post("/status", function(req, res){
             post.author.profile_picture = req.user.profile_picture;
             post.text = req.body.status;
             post.save()
-            console.log(post);
             res.redirect("back");
         }
     });
