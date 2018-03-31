@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 var Therapy = require("../models/therapy");
 var Comment = require("../models/comment");
+var User = require("../models/user");
 
 ////////////////////
 // THERAPIES PAGE //
@@ -25,6 +26,10 @@ router.post("/therapies", function(req, res){
     var state = req.body.state
     var zip = req.body.zip
     var website = req.body.website
+    var author = {
+        id: req.user._id,
+        username: req.user.username
+    }
 
     var newTherapy = {
         name: name, 
@@ -33,7 +38,8 @@ router.post("/therapies", function(req, res){
         city: city,
         state: state,
         zip: zip,
-        website: website
+        website: website,
+        author: author
     }
 
     // Create new Therapy and save to DB
@@ -87,24 +93,12 @@ router.post("/therapies/:id/comments", isLoggedIn, function(req, res){
 });
 
 // EDIT
-router.get("/therapies/:id/edit", function(req, res){
-    if(req.isAuthenticated()){
-        Therapy.findById(req.params.id, function(err, foundTherapy){
-            if(err){
-                res.redirect("/therapies");
-            } else {
-                if(foundTherapy.author.id.equals(req.user._id)){
-                    res.render("edit-therapy", {therapy: foundTherapy});
-                } else {
-                    res.send("You do not have permission to do that");
-                }
-            }
-        });
-    } else {
-        console.log("You need to be logged in");
-        res.send("You need to be logged in")
-    }
+router.get("/therapies/:id/edit", checkOwnership, function(req, res){
+    Therapy.findById(req.params.id, function(err, foundTherapy){
+        res.render("edit-therapy", {therapy: foundTherapy});
+    });
 });
+
 // UPDATE
 router.put("/therapies/:id", function(req, res){
     Therapy.findByIdAndUpdate(req.params.id, req.body.therapy, function(err, updatedTherapy){
@@ -131,6 +125,24 @@ function isLoggedIn(req, res, next){
         return next();
     }
     res.redirect("/");
+}
+
+function checkOwnership(req, res, next){
+    if(req.isAuthenticated()){
+        Therapy.findById(req.params.id, function(err, foundTherapy){
+            if(err){
+                res.redirect("back");
+            } else {
+                if(foundTherapy.author.id.equals(req.user._id)){
+                    next();
+                } else {
+                    res.redirect("back");
+                }
+            }
+        });
+    } else {
+        res.redirect("back");
+    }
 }
 
 module.exports = router;
