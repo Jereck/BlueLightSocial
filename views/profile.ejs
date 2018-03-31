@@ -1,36 +1,50 @@
 <% include partials/header %>
 
-<div class="container">
-    <div class="row">
-        <div class="col s12 m6 l4">
-            <div class="card">
-                <div class="card-image">
-                    <img src="<%= currentUser.profile_picture %>">
-                    <span class="card-title"><%= currentUser.first_name%> <%= currentUser.last_name %></span>
+<div class="row">
+    <div class="col s12 m4 l3">
+        <img src="<%= currentUser.profile_picture %>" class="responsive-img">
+        <%= currentUser.first_name%> <%= currentUser.last_name %>
+        <p><i class="tiny material-icons">face</i> @<%= currentUser.username %></p>
+        <hr>
+        <p><i class="tiny material-icons">mail</i> <%= currentUser.email %></p>
+        <hr>
+        <p><i class="tiny material-icons">message</i> Send Message</p>
+    </div>
+    <div class="col s12 m8 l6">
+        <div class="row">
+            <form class="col s12" action="/status" method="POST">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="status" class="materialize-textarea" name="status"></textarea>
+                        <label for="status">Status Update</label>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <p><i class="tiny material-icons">face</i> @<%= currentUser.username %></p>
-                    <hr>
-                    <p><i class="tiny material-icons">mail</i> <%= currentUser.email %></p>
-                    <hr>
-                    <p><i class="tiny material-icons">message</i> Send Message</p>                    
-                </div>
-            </div>
+                <input class="waves-effect waves-light btn" type="submit" value="Submit">
+            </form>
         </div>
-
-        <div class="col s12 m6 l7 offset-l1 card">
-            <div class="row">
-                <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea id="status" class="materialize-textarea"></textarea>
-                            <label for="status">Status Update</label>
+        <div class="row">
+            <div class="col s12">
+                <% posts.forEach(function(post){ %>
+                    <div class="card-panel grey lighten-5 z-depth-1">
+                        <div class="row valign-wrapper">
+                            <div class="col s2 center-align">
+                                <img src="<%= post.author.profile_picture %>" class="circle responsive-img">
+                                <%= post.author.username %>
+                            </div>
+                            <div class="col s10">
+                                <span class="black-text">
+                                    <%= post.text %>
+                                </span>
+                            </div>
                         </div>
                     </div>
-                    <input class="waves-effect waves-light btn" type="submit" value="Submit">
-                </form>
+                <% }) %>
             </div>
         </div>
+    </div>
+    <div class="col s12 m12 l3 card">
+        <h4 class="center-align">Friends</h4>
+        <hr>
     </div>
 </div>
 

@@ -16,7 +16,7 @@ var therapyRoutes = require("./routes/therapies"),
     indexRoutes   = require("./routes/index");
 
 
-seedDB();
+// seedDB();
 // mongoose.connect('mongodb://Jake:stella@ds229549.mlab.com:29549/bluelight');
 mongoose.connect('mongodb://localhost/bluelight');
 app.use(bodyParser.urlencoded({extended: true}));

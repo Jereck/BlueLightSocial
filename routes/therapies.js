@@ -24,6 +24,7 @@ router.post("/therapies", function(req, res){
     var city = req.body.city
     var state = req.body.state
     var zip = req.body.zip
+    var website = req.body.website
 
     var newTherapy = {
         name: name, 
@@ -31,7 +32,8 @@ router.post("/therapies", function(req, res){
         description: description,
         city: city,
         state: state,
-        zip: zip
+        zip: zip,
+        website: website
     }
 
     // Create new Therapy and save to DB

@@ -7,6 +7,7 @@ var therapySchema = new mongoose.Schema({
     city: String,
     state: String,
     zip: String,
+    website: String,
     comments: [
         {
             type: mongoose.Schema.Types.ObjectId,
