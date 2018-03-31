@@ -86,6 +86,46 @@ router.post("/therapies/:id/comments", isLoggedIn, function(req, res){
     });
 });
 
+// EDIT
+router.get("/therapies/:id/edit", function(req, res){
+    if(req.isAuthenticated()){
+        Therapy.findById(req.params.id, function(err, foundTherapy){
+            if(err){
+                res.redirect("/therapies");
+            } else {
+                if(foundTherapy.author.id.equals(req.user._id)){
+                    res.render("edit-therapy", {therapy: foundTherapy});
+                } else {
+                    res.send("You do not have permission to do that");
+                }
+            }
+        });
+    } else {
+        console.log("You need to be logged in");
+        res.send("You need to be logged in")
+    }
+});
+// UPDATE
+router.put("/therapies/:id", function(req, res){
+    Therapy.findByIdAndUpdate(req.params.id, req.body.therapy, function(err, updatedTherapy){
+        if(err){
+            res.redirect("/therapies");
+        } else {
+            res.redirect("/therapies/" + req.params.id);
+        }
+    })
+});
+// DESTROY
+router.delete("/therapies/:id", function(req, res){
+    Therapy.findByIdAndRemove(req.params.id, function(err){
+        if(err){
+            res.redirect("/therapies");
+        } else {
+            res.redirect("/therapies");            
+        }
+    });
+});
+
 function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         return next();

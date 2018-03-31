@@ -4,6 +4,10 @@
     <div class="row">
         <div class="col sm-12">
             <h1 class="title"><%= therapy.name %></h1>
+            <a class="btn-small orange" href="/therapies/<%= therapy._id %>/edit"><i class="material-icons left">create</i>Edit</a>
+            <form id="delete-form" action="/therapies/<%= therapy._id %>?_method=DELETE" method="POST">
+                <button class="btn-small red" type="submit">Delete</button>
+            </form>
         </div>
     </div>
     <div class="row">

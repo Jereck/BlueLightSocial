@@ -1,0 +1,47 @@
+<% include partials/header %>
+
+<div class="container">
+    <h1>Edit <%= therapy.name %></h1>
+    <div class="row">
+        <form class="col s12" action="/therapies/<%= therapy._id %>?_method=PUT" method="POST">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="name" type="text" class="validate" name="therapy[name]"  value="<%= therapy.name %>">
+                    <label for="name">Name</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="image" type="text" class="validate" name="therapy[image]"  value="<%= therapy.image %>">
+                    <label for="image">Image</label>
+                </div>
+                <div class="input-field col s12">
+                    <textarea id="description" class="materialize-textarea" name="therapy[description]"><%= therapy.description %></textarea>
+                    <label for="description">Description</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="website" type="text" class="validate" name="therapy[website]"  value="<%= therapy.website %>">
+                    <label for="website">Website</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="city" type="text" class="validate" name="therapy[city]"  value="<%= therapy.city %>">
+                    <label for="city">City</label>
+                </div>
+                <div class="input-field col s2">
+                    <input id="state" type="text" class="validate" name="therapy[state]"  value="<%= therapy.state %>">
+                    <label for="state">State</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="zip" type="text" class="validate" name="therapy[zip]"  value="<%= therapy.zip %>">
+                    <label for="zip">Zip Code</label>
+                </div>
+            </div>
+            <button class="btn waves-effect waves-light blue" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+            </button>
+        </form>
+    </div>
+</div>
+
+
+<% include partials/footer %>

@@ -8,6 +8,13 @@ var therapySchema = new mongoose.Schema({
     state: String,
     zip: String,
     website: String,
+    author: {
+        id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        },
+        username: String
+    },
     comments: [
         {
             type: mongoose.Schema.Types.ObjectId,
