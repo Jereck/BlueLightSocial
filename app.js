@@ -17,8 +17,8 @@ var therapyRoutes = require("./routes/therapies"),
 
 
 // seedDB();
-// mongoose.connect('mongodb://Jake:stella@ds229549.mlab.com:29549/bluelight');
-mongoose.connect('mongodb://localhost/bluelight');
+mongoose.connect('mongodb://Jake:stella@ds229549.mlab.com:29549/bluelight');
+// mongoose.connect('mongodb://localhost/bluelight');
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
@@ -47,10 +47,10 @@ app.use(profileRoutes);
 app.use(therapyRoutes);
 app.use(groupRoutes);
 
-app.listen(3000, function(){
-    console.log("Server is running...");
-});
+// app.listen(3000, function(){
+//     console.log("Server is running...");
+// });
 
-// app.listen(process.env.PORT, process.env.IP, function(){
-//     console.log("Server is running!")
-// })
+app.listen(process.env.PORT, process.env.IP, function(){
+    console.log("Server is running!")
+});
