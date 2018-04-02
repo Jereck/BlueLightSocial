@@ -2,25 +2,35 @@
 
 <div class="container">
     <div class="row">
-        <div class="col sm-12">
+        <div class="col s12">
             <h1 class="title"><%= therapy.name %></h1>
-            <a class="btn-small orange" href="/therapies/<%= therapy._id %>/edit"><i class="material-icons left">create</i>Edit</a>
-            <form id="delete-form" action="/therapies/<%= therapy._id %>?_method=DELETE" method="POST">
-                <button class="btn-small red" type="submit">Delete</button>
-            </form>
+            <% if(currentUser && therapy.author.id.equals(currentUser._id)) { %>
+                <a class="btn-small orange" href="/therapies/<%= therapy._id %>/edit"><i class="material-icons left">create</i>Edit</a>
+                <form id="delete-form" action="/therapies/<%= therapy._id %>?_method=DELETE" method="POST">
+                    <button class="btn-small red" type="submit">Delete</button>
+                </form>
+            <% } %>
         </div>
     </div>
     <div class="row">
-        <div class="col sm-4">
-            <img src="<%= therapy.image %>">
+        <div class="col s12 m6 l4">
+            <img src="<%= therapy.image %>" class="responsive-img">
+            <div class="card-panel z-depth-3">
+                <h6><strong>Address:</strong></h6>
+                <p><%= therapy.street1 %></p>
+                <p><%= therapy.street2 %></p>
+                <p id="address"><%= therapy.city %>, <%= therapy.state %> <%= therapy.zip %></p>
+            </div>
         </div>
-        <div class="col sm-8">
-            <a class="btn" href="<%= therapy.website  %>"><i class="material-icons left">language</i>Website</a>
-            <p><%= therapy.description %></p>
+        <div class="col s12 m6 l8">
+            <!-- <div id="map"></div> -->
         </div>
     </div>
+        <a class="btn" href="<%= therapy.website  %>"><i class="material-icons left">language</i>Website</a>    
+        <p><%= therapy.description %></p>    
     <hr>
 
+    <!-- COMMENT SECTION -->
     <div class="row">
         <% therapy.comments.forEach(function(comment){ %>
                 <div class="col s12 m6 l4">
@@ -44,7 +54,7 @@
                 </div>
         <% }) %>
     </div>
-
+    <!-- ADD COMMENT OR LOG IN  -->
     <% if(!currentUser){ %>
         <p class="right-align">Log in to add comment...</p>
     <% } else { %>

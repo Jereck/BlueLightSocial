@@ -22,6 +22,8 @@ router.post("/therapies", function(req, res){
     var name = req.body.name
     var image = req.body.image
     var description = req.body.description
+    var street1 = req.body.street1
+    var street2 = req.body.street2
     var city = req.body.city
     var state = req.body.state
     var zip = req.body.zip
@@ -35,6 +37,8 @@ router.post("/therapies", function(req, res){
         name: name, 
         image: image, 
         description: description,
+        street1: street1,
+        street2: street2,
         city: city,
         state: state,
         zip: zip,
@@ -100,7 +104,7 @@ router.get("/therapies/:id/edit", checkOwnership, function(req, res){
 });
 
 // UPDATE
-router.put("/therapies/:id", function(req, res){
+router.put("/therapies/:id", checkOwnership, function(req, res){
     Therapy.findByIdAndUpdate(req.params.id, req.body.therapy, function(err, updatedTherapy){
         if(err){
             res.redirect("/therapies");
@@ -110,7 +114,7 @@ router.put("/therapies/:id", function(req, res){
     })
 });
 // DESTROY
-router.delete("/therapies/:id", function(req, res){
+router.delete("/therapies/:id", checkOwnership, function(req, res){
     Therapy.findByIdAndRemove(req.params.id, function(err){
         if(err){
             res.redirect("/therapies");

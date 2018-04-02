@@ -4,6 +4,8 @@ var therapySchema = new mongoose.Schema({
     name: String,
     image: String,
     description: String,
+    street1: String,
+    street2: String,
     city: String,
     state: String,
     zip: String,
