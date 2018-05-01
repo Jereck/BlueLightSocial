@@ -19,14 +19,13 @@ router.get("/register", function(req, res){
 });
 
 router.post("/register", function(req, res){
-    var newUser = new User(
-        {
-            username: req.body.username,
-            first_name: req.body.first_name,
-            last_name: req.body.last_name,
-            email: req.body.email,
-            profile_picture: req.body.profile_picture
-        });
+    var newUser = new User({
+        username: req.body.username,
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        email: req.body.email,
+        profile_picture: req.body.profile_picture,
+    });
     User.register(newUser, req.body.password, function(err, user){
         if (err){
             console.log(err);
