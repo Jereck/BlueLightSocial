@@ -52,7 +52,7 @@
     </div>
     <!-- ADD COMMENT OR LOG IN  -->
     <% if(!currentUser){ %>
-        <p class="right-align">Log in to add comment...</p>
+        <a href="/login"><p class="right-align">Log in to add comment...</p></a>
     <% } else { %>
         <div class="row">
             <form class="col s12" action="/therapies/<%= therapy._id %>/comments" method="POST">
