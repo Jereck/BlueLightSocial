@@ -33,25 +33,21 @@
     <!-- COMMENT SECTION -->
     <div class="row">
         <% therapy.comments.forEach(function(comment){ %>
-                <div class="col s12 m6 l4">
-                    <div class="card-panel z-depth-3">
-                        <div class="row valign-wrapper">
-                            <div class="col s2">
-                                <img src="<%= comment.author.profile_picture %>" alt="" class="circle responsive-img">                    
-                            </div>
-                            <div class="col s10">
-                                <p><strong><%= comment.author.username %></strong></p>
+            <div class="col s12">
+                <div class="card-panel z-depth-3">
+                    <div class="row valign-wrapper">
+                        <div class="col s2">
+                            <img src="<%= comment.author.profile_picture %>" alt="" class="comment-img responsive-img">                                
+                            <div class="center-align">
+                                <strong><%= comment.author.username %></strong>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col s12">
-                                <span class="black-text">             
-                                    <%= comment.text %>
-                                </span>
-                            </div>
+                        <div class="col s10">
+                            <%= comment.text %>                                
                         </div>
                     </div>
                 </div>
+            </div>
         <% }) %>
     </div>
     <!-- ADD COMMENT OR LOG IN  -->

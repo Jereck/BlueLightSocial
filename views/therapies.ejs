@@ -7,11 +7,11 @@
     <% } %>
     <div class="row">
         <% therapies.forEach(function(therapies){ %>
-            <div class="col s12 m6 l3">
+            <div class="col s12 m12 l4">
                 <div class="card hoverable">
                     <div class="card-image">
                         <img src="<%= therapies.image %>">
-                        <span class="card-title"><%= therapies.name %></span>
+                        <span class="card-title therapy-name"><%= therapies.name %></span>
                     </div>
                     <div class="card-content">
                         <p class="truncate"><%= therapies.description %></p>

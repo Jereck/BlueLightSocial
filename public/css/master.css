@@ -1,8 +1,11 @@
+body {
+    font-family: 'Lato', sans-serif;
+}
+
 #delete-form {
     display: inline;
 }
 
-#map{
-    width: 100%;
-    height: 400px;
+.therapy-name {
+    text-shadow: 2px 2px 2px black;
 }
